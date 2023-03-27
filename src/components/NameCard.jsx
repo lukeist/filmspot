@@ -45,14 +45,14 @@ const NameCard = () => {
             key={index}
             href={i.href}
             cursor="pointer"
-            opacity="0.35"
+            opacity="0.3"
             _hover={{ opacity: 1 }}
           >
             {i.icon}
           </Link>
         ))}
       </Box>
-      <Text textAlign="center" fontSize="xs" width="270px" opacity="0.5">
+      <Text textAlign="center" fontSize="xs" width="270px" opacity="0.3">
         © 2023 - Luan Pham @ Stonks | This Is The Way!
       </Text>
     </Box>

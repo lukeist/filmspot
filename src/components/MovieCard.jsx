@@ -20,25 +20,6 @@ const MovieCard = ({
   // const animationDelay = `${index * 100}ms`;
   const [removing, setRemoving] = useState(false); // Add a new state for handling the removal animation
 
-  // const handleButtonClick = async (movie) => {
-  //   if (isWatched(movie) || isBookmarked(movie)) {
-  //     setRemoving(true); // Start the removal animation
-  //     await new Promise((resolve) => setTimeout(resolve, 400)); // Wait for the animation to complete
-  //   }
-
-  //   if (isWatched(movie)) {
-  //     onRemove(movie, "watched");
-  //   } else if (isBookmarked(movie)) {
-  //     if (onMarkAsWatched) {
-  //       onMarkAsWatched(movie);
-  //     } else {
-  //       onRemove(movie, "bookmarked");
-  //     }
-  //   } else {
-  //     onBookmark(movie);
-  //   }
-  // };
-
   const handleButtonClick = async (movie) => {
     if (isWatched(movie) || isBookmarked(movie)) {
       setRemoving(true); // Start the removal animation

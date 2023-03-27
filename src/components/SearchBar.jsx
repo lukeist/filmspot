@@ -3,12 +3,12 @@ import {
   Input,
   IconButton,
   FormControl,
-  FormLabel,
   Heading,
   Text,
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { SearchIcon } from "@chakra-ui/icons";
+// import { handleSearch } from "@/utils/homeHandlers";
 
 const SearchBar = ({ onSearch, movies }) => {
   const [searchValue, setSearchValue] = useState("");
@@ -18,6 +18,13 @@ const SearchBar = ({ onSearch, movies }) => {
     onSearch(searchValue);
     setSearchValue("");
   };
+
+  // STILL TESTING
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   handleSearch(searchValue, setMovies);
+  //   setSearchValue("");
+  // };
 
   return (
     <Box
@@ -41,7 +48,7 @@ const SearchBar = ({ onSearch, movies }) => {
         fontWeight="light"
         letterSpacing="10px"
       >
-        FLIKDEX
+        FILMSPOT
       </Heading>
 
       <Text fontSize="xs" mb={2} color="gray.500">
