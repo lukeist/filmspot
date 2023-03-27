@@ -16,7 +16,7 @@ Take control of your movie recommendations with this app. Try it now and you won
 
 Here's what you can expect from your interaction with my app:
 
-![alt tag](https://i.ibb.co/V97MYYg/filmspot.gif)
+![alt tag](https://github.com/hiluan/hiluan/raw/main/images/filmspot.gif)
 
 1. As soon as you land on the front page, I'll introduce you to the latest movie trailers. This way, you can easily find the newest and most exciting releases and add them to your bookmarked list for future viewing.
 
