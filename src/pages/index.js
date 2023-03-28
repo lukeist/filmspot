@@ -49,7 +49,6 @@ export default function Home() {
       />
       <VStack spacing={8} mt="25vh" mb="8vh">
         <SearchBar onSearch={handleSearch} movies={Boolean(movies.length)} />
-
         <MainMovieList
           movies={movies}
           isBookmarked={isBookmarked}
@@ -57,7 +56,6 @@ export default function Home() {
           onBookmark={addBookmark}
           onRemove={handleRemove}
         />
-
         <Sidebar
           isOpen={showBookmarks}
           onClose={handleCloseBookmarks}
@@ -77,7 +75,6 @@ export default function Home() {
             buttonIcon={() => <CloseIcon />}
           />
         </Sidebar>
-
         <Sidebar
           isOpen={showWatched}
           onClose={handleCloseWatched}
