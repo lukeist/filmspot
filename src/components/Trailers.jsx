@@ -1,7 +1,17 @@
 import { Box } from "@chakra-ui/react";
 import Image from "next/image";
+import { useState, useEffect } from "react";
 
-const Trailers = ({ isLargerThanMobile }) => {
+const Trailers = () => {
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const userAgent = navigator.userAgent;
+    const isMobile = /Android|iPhone|iPod/i.test(userAgent);
+
+    setIsDesktop(!isMobile);
+  }, []);
+
   return (
     <Box
       as="div"
@@ -12,10 +22,10 @@ const Trailers = ({ isLargerThanMobile }) => {
       w="100%"
       h="100%"
       overflow="hidden"
-      transform={isLargerThanMobile ? "scale(1.35)" : "translateX(30%)"}
+      transform={isDesktop ? "scale(1.35)" : "translateX(30%)"}
       id="trailers"
     >
-      {isLargerThanMobile ? (
+      {isDesktop ? (
         <iframe
           title="Trailers"
           src="https://www.youtube.com/embed/7NUZ_SDiG2o&t=6?autoplay=1&mute=1&controls=0&loop=1&playlist=7NUZ_SDiG2o"
