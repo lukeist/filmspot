@@ -12,7 +12,7 @@ const Trailers = ({ isLargerThanMobile }) => {
       w="100%"
       h="100%"
       overflow="hidden"
-      transform={isLargerThanMobile ? "scale(1.35)" : "translateX(18%)"}
+      transform={isLargerThanMobile ? "scale(1.35)" : "translateX(24%)"}
       id="trailers"
     >
       {isLargerThanMobile ? (
