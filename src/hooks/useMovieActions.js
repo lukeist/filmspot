@@ -2,9 +2,6 @@ import { useState, useEffect } from "react";
 import useBookmarks from "./useBookmarks";
 import useWatched from "./useWatched";
 
-// This hook is a custom hook that handles state and logic related to the Home component, making it more modular and easier to maintain.
-// It manages movie data, bookmarks, watched movies, and the visibility of bookmarked and watched movie lists.
-// It provides utility functions for adding, removing, checking bookmarks and watched movies, searching for movies, marking them as watched, and opening/closing bookmarked and watched lists.
 export const useMovieActions = () => {
   const [movies, setMovies] = useState([]); // store and update the movies fetched from the API
   const { bookmarkedMovies, addBookmark, removeBookmark } = useBookmarks(); // manage bookmarked movies

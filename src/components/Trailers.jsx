@@ -16,9 +16,9 @@ const Trailers = () => {
     >
       <iframe
         title="Trailers"
-        src="https://www.youtube.com/embed/7NUZ_SDiG2o&t=6?autoplay=1&mute=1&controls=0&loop=1&playlist=7NUZ_SDiG2o&playsInline=1"
+        src="https://www.youtube.com/embed/7NUZ_SDiG2o&t=6?autoplay=1&mute=1&controls=0&loop=1&playlist=7NUZ_SDiG2o"
         allowFullScreen
-        allow="autoplay; encrypted-media; picture-in-picture; playsInline"
+        allow="autoplay; encrypted-media"
         style={{
           top: 0,
           left: 0,
@@ -29,7 +29,6 @@ const Trailers = () => {
           objectFit: "cover",
         }}
         playsInline
-        muted
       />
     </Box>
   );

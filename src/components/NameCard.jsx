@@ -1,4 +1,4 @@
-import { Box, Divider, Link, Text } from "@chakra-ui/react";
+import { Box, Link, Text } from "@chakra-ui/react";
 import {
   FaGithub,
   FaLinkedin,
@@ -29,16 +29,16 @@ const NameCard = () => {
   return (
     <Box
       position="absolute"
-      bottom="20px"
+      bottom="0"
       right="0"
       left="0"
+      pb="20px"
       display="flex"
       flexDirection="column"
       justifyContent="center"
       alignItems="center"
       gap="1"
     >
-      <Divider my={3} />
       <Box display="flex" justifyContent="center" gap="3">
         {info.map((i, index) => (
           <Link
@@ -53,7 +53,7 @@ const NameCard = () => {
         ))}
       </Box>
       <Text textAlign="center" fontSize="xs" width="270px" opacity="0.3">
-        © 2023 - Luan Pham @ Stonks
+        © 2023 - Luan Pham @ Stonks | This Is The Way!
       </Text>
     </Box>
   );
