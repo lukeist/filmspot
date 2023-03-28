@@ -41,7 +41,7 @@ export default function Home() {
       overflowX="hidden"
       position="relative"
     >
-      {isVideoPlaying && <Trailers />}
+      {isVideoPlaying && <Trailers isLargerThanMobile={isLargerThanMobile} />}
       <Navbar
         onOpenBookmarks={handleOpenBookmarks}
         onOpenWatched={handleOpenWatched}

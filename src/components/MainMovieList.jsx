@@ -16,6 +16,7 @@ const MainMovieList = ({
     <Box
       width={isLargerThanMobile ? "90%" : "100%"}
       pt={isLargerThanMobile ? 0 : "18vh"}
+      pb="5vh"
     >
       <MovieList
         mainpage={true}
