@@ -1,6 +1,6 @@
+import { useState, useEffect } from "react";
 import { Box } from "@chakra-ui/react";
 import Image from "next/image";
-import { useState, useEffect } from "react";
 
 const Trailers = () => {
   const [isDesktop, setIsDesktop] = useState(false);
@@ -40,6 +40,7 @@ const Trailers = () => {
             pointerEvents: "none",
             objectFit: "cover",
           }}
+          muted
           playsInline
         />
       ) : (
