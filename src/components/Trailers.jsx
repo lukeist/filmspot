@@ -28,7 +28,7 @@ const Trailers = () => {
       {isDesktop ? (
         <iframe
           title="Trailers"
-          src="https://www.youtube.com/embed/TZ_EndudJ8k&t=6?autoplay=1&mute=1&controls=0&loop=1&playlist=TZ_EndudJ8k"
+          src="https://www.youtube.com/embed/bzgj-TFj45M&t=6?autoplay=1&mute=1&controls=0&loop=1&playlist=bzgj-TFj45M"
           allowFullScreen
           allow="autoplay; encrypted-media"
           style={{
