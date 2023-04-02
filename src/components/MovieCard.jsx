@@ -104,7 +104,7 @@ const MovieCard = ({
           whiteSpace="nowrap"
           width="10px"
           transform={transform}
-          borderRadius="50%"
+          // borderRadius="50%"
           opacity={isWatched(movie) || isBookmarked(movie) ? 1 : 0.5}
           zIndex={2}
         >

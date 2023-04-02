@@ -9,18 +9,22 @@ export const useMovieActions = () => {
   const [showBookmarks, setShowBookmarks] = useState(false); // control the visibility of the bookmarked movies sidebar
   const [showWatched, setShowWatched] = useState(false); // control the visibility of the watched movies sidebar
   const [isVideoPlaying, setIsVideoPlaying] = useState(true); // manage the video playing state
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     setIsVideoPlaying(movies.length === 0);
   }, [movies]);
 
   const handleSearch = async (searchValue) => {
+    setLoading(true);
     try {
       const response = await fetch(`/api/movies?search=${searchValue}`);
       const data = await response.json();
       setMovies(data.Search || []);
     } catch (error) {
       console.error("Error fetching movies:", error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -77,5 +81,6 @@ export const useMovieActions = () => {
     handleCloseWatched,
     isBookmarked,
     isWatched,
+    loading,
   };
 };

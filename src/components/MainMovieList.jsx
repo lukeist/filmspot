@@ -1,7 +1,8 @@
-import MovieList from "@/components/MovieList";
-import { StarIcon, ViewOffIcon } from "@chakra-ui/icons";
-import { Box } from "@chakra-ui/react";
+import { BsFillBookmarkPlusFill, BsFillBookmarkStarFill } from "react-icons/bs";
 import { useMediaQuery } from "@chakra-ui/react";
+import { ViewOffIcon } from "@chakra-ui/icons";
+import { Box } from "@chakra-ui/react";
+import MovieList from "@/components/MovieList";
 
 const MainMovieList = ({
   movies,
@@ -32,9 +33,14 @@ const MainMovieList = ({
           isWatched(movie) ? (
             <ViewOffIcon />
           ) : isBookmarked(movie) ? (
-            <StarIcon color="goldenrod" />
+            // <StarIcon color="goldenrod" />
+            <Box transform="scale(2)" color="goldenrod">
+              <BsFillBookmarkStarFill />
+            </Box>
           ) : (
-            <StarIcon color="goldenrod.500" />
+            <Box transform="scale(2)">
+              <BsFillBookmarkPlusFill />
+            </Box>
           )
         }
       />

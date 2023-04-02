@@ -11,7 +11,7 @@ const NavbarItems = ({ handleClick, Icon, profile }) => {
       _hover={{
         shadow: "none",
         filter: "brightness(1.2)",
-        color: "#DAA520",
+        color: "goldenrod",
       }}
       onClick={handleClick}
     >

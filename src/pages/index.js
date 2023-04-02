@@ -1,4 +1,11 @@
-import { Container, useMediaQuery, VStack } from "@chakra-ui/react";
+import {
+  Box,
+  Container,
+  Spinner,
+  Text,
+  useMediaQuery,
+  VStack,
+} from "@chakra-ui/react";
 import { useMovieActions } from "@/hooks";
 import { CloseIcon } from "@chakra-ui/icons";
 import MainMovieList from "@/components/MainMovieList";
@@ -28,6 +35,7 @@ export default function Home() {
     handleCloseWatched,
     isBookmarked,
     isWatched,
+    loading,
   } = useMovieActions();
 
   // Check if screen size is larger than mobile
@@ -50,13 +58,20 @@ export default function Home() {
       <VStack spacing={8} mt="25vh" mb="8vh">
         <SearchBar onSearch={handleSearch} movies={Boolean(movies.length)} />
 
-        <MainMovieList
-          movies={movies}
-          isBookmarked={isBookmarked}
-          isWatched={isWatched}
-          onBookmark={addBookmark}
-          onRemove={handleRemove}
-        />
+        {loading ? (
+          <Box transform="scale(3)">
+            <Spinner />
+          </Box>
+        ) : (
+          // <Text>Loading...</Text>
+          <MainMovieList
+            movies={movies}
+            isBookmarked={isBookmarked}
+            isWatched={isWatched}
+            onBookmark={addBookmark}
+            onRemove={handleRemove}
+          />
+        )}
 
         <Sidebar
           isOpen={showBookmarks}

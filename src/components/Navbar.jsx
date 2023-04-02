@@ -1,4 +1,5 @@
-import { StarIcon, MoonIcon, SunIcon, ViewOffIcon } from "@chakra-ui/icons";
+import { MoonIcon, SunIcon, ViewOffIcon } from "@chakra-ui/icons";
+import { BsFillBookmarkStarFill } from "react-icons/bs";
 import { useEffect, useState } from "react";
 import { Box, Flex, Spacer } from "@chakra-ui/react";
 import { useColorMode } from "@chakra-ui/react";
@@ -71,7 +72,10 @@ const Navbar = ({ onOpenBookmarks, onOpenWatched, setMovies }) => {
       </Box>
       <Spacer flex={0.7} />
       <Flex gap="10">
-        <NavbarItems handleClick={onOpenBookmarks} Icon={StarIcon} />
+        <NavbarItems
+          handleClick={onOpenBookmarks}
+          Icon={BsFillBookmarkStarFill}
+        />
         <NavbarItems handleClick={onOpenWatched} Icon={ViewOffIcon} />
         <NavbarItems
           handleClick={toggleColorMode}
