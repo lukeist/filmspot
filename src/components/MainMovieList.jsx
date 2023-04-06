@@ -10,6 +10,7 @@ const MainMovieList = ({
   isWatched,
   onBookmark,
   onRemove,
+  onMarkAsWatched,
 }) => {
   const [isLargerThanMobile] = useMediaQuery("(min-width: 480px)");
 
@@ -26,6 +27,8 @@ const MainMovieList = ({
         isWatched={isWatched}
         onBookmark={onBookmark}
         onRemove={onRemove}
+        onMarkAsWatched={onMarkAsWatched}
+        showMarkAsWatched={true}
         columns={[2, 3, 4, 5]}
         fontSize={isLargerThanMobile ? 16 : 10}
         transform={isLargerThanMobile ? "scale(1)" : "scale(0.8)"}

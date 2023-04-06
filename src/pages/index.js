@@ -70,6 +70,7 @@ export default function Home() {
             isWatched={isWatched}
             onBookmark={addBookmark}
             onRemove={handleRemove}
+            onMarkAsWatched={handleMarkAsWatched}
           />
         )}
 

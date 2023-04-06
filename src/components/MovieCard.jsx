@@ -1,12 +1,11 @@
+import { Box, Image, Text, Button } from "@chakra-ui/react";
 import { ViewOffIcon } from "@chakra-ui/icons";
-import { Box, Image, Text, Button, useMediaQuery } from "@chakra-ui/react";
-import styles from "@/styles/styles.module.css"; // Import the CSS file
 import { useState } from "react";
+import styles from "@/styles/styles.module.css"; // Import the CSS file
 
 const MovieCard = ({
   mainpage,
   movie,
-  index,
   isBookmarked,
   isWatched,
   onBookmark,
@@ -19,6 +18,7 @@ const MovieCard = ({
 }) => {
   // const animationDelay = `${index * 100}ms`;
   const [removing, setRemoving] = useState(false); // Add a new state for handling the removal animation
+  const [disappearing, setDisappearing] = useState(false);
 
   const handleButtonClick = async (movie) => {
     if (isWatched(movie) || isBookmarked(movie)) {
@@ -35,7 +35,9 @@ const MovieCard = ({
     }
   };
 
-  const handleMarkAsWatchedClick = (movie) => {
+  const handleMarkAsWatchedClick = async (movie) => {
+    setDisappearing(true); // Start the disappearing animation
+    await new Promise((resolve) => setTimeout(resolve, 400)); // Wait for the animation to complete
     onMarkAsWatched(movie);
   };
 
@@ -91,7 +93,7 @@ const MovieCard = ({
         top="3%"
         display="flex"
         flexDirection="column"
-        gap={0}
+        gap={2}
       >
         <Button
           bg="black"
@@ -104,13 +106,12 @@ const MovieCard = ({
           whiteSpace="nowrap"
           width="10px"
           transform={transform}
-          // borderRadius="50%"
           opacity={isWatched(movie) || isBookmarked(movie) ? 1 : 0.5}
           zIndex={2}
         >
           {buttonIcon(movie)}
         </Button>
-        {showMarkAsWatched && (
+        {showMarkAsWatched && !isWatched(movie) && (
           <Button
             bg="black"
             color="white"
@@ -119,10 +120,11 @@ const MovieCard = ({
               color: "black",
             }}
             onClick={() => handleMarkAsWatchedClick(movie)}
+            opacity={isWatched(movie) || isBookmarked(movie) ? 1 : 0.5}
+            className={`${disappearing ? styles.slideUp : ""}`}
             whiteSpace="nowrap"
             width="10px"
             transform={transform}
-            borderRadius="50%"
             zIndex="3"
           >
             <ViewOffIcon />
