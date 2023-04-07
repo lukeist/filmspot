@@ -71,6 +71,7 @@ export default function Home() {
             onBookmark={addBookmark}
             onRemove={handleRemove}
             onMarkAsWatched={handleMarkAsWatched}
+            transform="translateY(0%)"
           />
         )}
 
@@ -86,7 +87,6 @@ export default function Home() {
             onBookmark={addBookmark}
             onRemove={handleRemove}
             onMarkAsWatched={handleMarkAsWatched}
-            showMarkAsWatched
             columns={[2, 3]}
             fontSize={isLargerThanMobile ? 10 : 8}
             transform="scale(0.8)"

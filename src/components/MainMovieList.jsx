@@ -28,7 +28,6 @@ const MainMovieList = ({
         onBookmark={onBookmark}
         onRemove={onRemove}
         onMarkAsWatched={onMarkAsWatched}
-        showMarkAsWatched={true}
         columns={[2, 3, 4, 5]}
         fontSize={isLargerThanMobile ? 16 : 10}
         transform={isLargerThanMobile ? "scale(1)" : "scale(0.8)"}

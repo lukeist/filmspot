@@ -13,7 +13,6 @@ const MovieList = ({
   transform,
   onMarkAsWatched,
   buttonIcon,
-  showMarkAsWatched = false,
 }) => {
   return (
     <SimpleGrid columns={columns} spacing={3} overflow="hidden">
@@ -30,7 +29,6 @@ const MovieList = ({
           fontSize={fontSize}
           transform={transform}
           onMarkAsWatched={onMarkAsWatched}
-          showMarkAsWatched={showMarkAsWatched}
           buttonIcon={buttonIcon}
         />
       ))}

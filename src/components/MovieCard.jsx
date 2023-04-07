@@ -1,11 +1,12 @@
-import { Box, Image, Text, Button } from "@chakra-ui/react";
 import { ViewOffIcon } from "@chakra-ui/icons";
-import { useState } from "react";
+import { Box, Image, Text, Button, useMediaQuery } from "@chakra-ui/react";
 import styles from "@/styles/styles.module.css"; // Import the CSS file
+import { useState } from "react";
 
 const MovieCard = ({
   mainpage,
   movie,
+  index,
   isBookmarked,
   isWatched,
   onBookmark,
@@ -13,12 +14,10 @@ const MovieCard = ({
   fontSize,
   transform,
   onMarkAsWatched,
-  showMarkAsWatched,
   buttonIcon,
 }) => {
   // const animationDelay = `${index * 100}ms`;
   const [removing, setRemoving] = useState(false); // Add a new state for handling the removal animation
-  const [disappearing, setDisappearing] = useState(false);
 
   const handleButtonClick = async (movie) => {
     if (isWatched(movie) || isBookmarked(movie)) {
@@ -35,9 +34,7 @@ const MovieCard = ({
     }
   };
 
-  const handleMarkAsWatchedClick = async (movie) => {
-    setDisappearing(true); // Start the disappearing animation
-    await new Promise((resolve) => setTimeout(resolve, 400)); // Wait for the animation to complete
+  const handleMarkAsWatchedClick = (movie) => {
     onMarkAsWatched(movie);
   };
 
@@ -61,18 +58,17 @@ const MovieCard = ({
       }`} // Add the exitAnimation class when removing
       // style={{ animationDelay }} // Set the animation delay
     >
-      {isWatched(movie) && (
-        <Box
-          position="absolute"
-          top={0}
-          left={0}
-          width="100%"
-          height="85%"
-          backgroundColor="black"
-          opacity={0.7}
-          zIndex={1}
-        />
-      )}
+      <Box
+        position="absolute"
+        top={0}
+        left={0}
+        width="100%"
+        height="85%"
+        backgroundColor="black"
+        opacity={isWatched(movie) ? 0.7 : 0}
+        transition="all ease 0.3s"
+        zIndex={1}
+      />
 
       <Image
         className="movieImage"
@@ -107,29 +103,35 @@ const MovieCard = ({
           width="10px"
           transform={transform}
           opacity={isWatched(movie) || isBookmarked(movie) ? 1 : 0.5}
-          zIndex={2}
+          zIndex={3}
         >
           {buttonIcon(movie)}
         </Button>
-        {showMarkAsWatched && !isWatched(movie) && (
-          <Button
-            bg="black"
-            color="white"
-            _hover={{
-              bg: "white",
-              color: "black",
-            }}
-            onClick={() => handleMarkAsWatchedClick(movie)}
-            opacity={isWatched(movie) || isBookmarked(movie) ? 1 : 0.5}
-            className={`${disappearing ? styles.slideUp : ""}`}
-            whiteSpace="nowrap"
-            width="10px"
-            transform={transform}
-            zIndex="3"
-          >
-            <ViewOffIcon />
-          </Button>
-        )}
+
+        <Button
+          bg="black"
+          color="white"
+          _hover={{
+            bg: "white",
+            color: "black",
+          }}
+          onClick={() => handleMarkAsWatchedClick(movie)}
+          whiteSpace="nowrap"
+          width="10px"
+          transform={
+            isBookmarked(movie)
+              ? transform
+              : isWatched(movie)
+              ? "translateY(-100%)"
+              : "translateY(0%)"
+          }
+          opacity={isBookmarked(movie) ? 1 : isWatched(movie) ? 0 : 0.5}
+          transition="all ease 0.3s"
+          zIndex="2"
+          // className={disappearing ? styles.slideUp : styles.slideDown}
+        >
+          <ViewOffIcon />
+        </Button>
       </Box>
     </Box>
   );
