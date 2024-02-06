@@ -114,9 +114,55 @@ Here's what you can expect from your interaction with my app:
 
 These optimizations contribute to a more efficient and user-friendly app experience.
 
-## Lessons Learned:
+## Design Choices & Trade-Offs
 
-Using Chakra UI for building your app can teach you how to improve the UI design, code reusability, styling simplicity, and accessibility. With Chakra UI's pre-built components and customization options, you can create a visually appealing, consistent, and accessible user interface. This can save you time and effort while improving the user experience.
+### Chosen: Loading Both Bookmark and Watched Movies Simultaneously:
+
+**Choices:**
+
+- Load both bookmarked and watched movies in the sidebar when the page mounts.
+
+**Pros:**
+
+- Quick access to both sets of information when the page loads.
+- Improved user experience with instant availability of all relevant data.
+- Reduces the need for additional server requests when users switch between bookmarked and watched movies.
+
+**Cons:**
+
+- May increase initial loading time, especially with a large amount of data.
+- Could potentially overload the initial page load with unnecessary information.
+
+**Trade-offs:**
+
+- Sacrificing initial loading time for improved user experience and convenience.
+- Balancing between providing instant access to information and optimizing performance.
+
+### Loading Each Sidebar Individually When Called:
+
+**Choices:**
+
+- Load each sidebar (bookmarked or watched movies) individually when they are called.
+
+**Pros:**
+
+- Minimizes initial loading time by loading data only when specifically requested.
+- Avoids overloading the initial page load with unnecessary information, especially with a large dataset.
+- Optimizes performance and responsiveness, particularly with a substantial amount of data.
+
+**Cons:**
+
+- Users may experience delays when switching between bookmarked and watched movies.
+- Could lead to a less seamless user experience, especially if users frequently switch between the two lists.
+
+**Trade-offs:**
+
+- Sacrificing instant access to all relevant information for faster initial loading time.
+- Balancing between optimizing performance and providing a seamless user experience.
+
+### Decision
+
+The decision has been made to have **both bookmarked and watched movies loaded in the sidebar when the page mounts**, aiming for a seamless user experience. Through the application of pagination, a small portion of data will be loaded behind the scenes, mitigating initial loading time. To address potential drawbacks, caching techniques such as `memo()` and `useMemo()` for component caching and `swr` for data caching will be employed, ensuring quick access for users without compromising performance.
 
 # Other Examples:
 

@@ -1,6 +1,6 @@
 import { ViewOffIcon } from "@chakra-ui/icons";
 import { Box, Image, Text, Button, useMediaQuery } from "@chakra-ui/react";
-import styles from "@/styles/styles.module.css"; // Import the CSS file
+import styles from "@/styles/styles.module.css";
 import { useState } from "react";
 
 const MovieCard = ({
